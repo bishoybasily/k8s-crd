@@ -1,0 +1,66 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  namespace: experimental
+  name: fidelyo-crd-serviceaccount
+  labels:
+    type: fcrd
+
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    type: fcrd
+  name: fidelyo-crd-clusterrole
+rules:
+  - apiGroups: ["*"]
+    resources: ["pods", "replicasets", "deployments", "services", "fidelyos", "customresourcedefinitions"]
+    verbs: ["get", "watch", "list", "delete", "create", "update", "patch"]
+
+
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  namespace: experimental
+  name: fidelyo-crd-clusterrolebinding
+  labels:
+    type: fcrd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: fidelyo-crd-clusterrole
+subjects:
+  - kind: ServiceAccount
+    name: fidelyo-crd-serviceaccount
+    namespace: experimental
+    apiGroup: ""
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fidelyo-crd
+  namespace: experimental
+  labels:
+    type: fcrd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: fcrd
+  template:
+    metadata:
+      name: fidelyo-crd
+      namespace: experimental
+      labels:
+        type: fcrd
+    spec:
+      serviceAccount: fidelyo-crd-serviceaccount
+      containers:
+        - image: registry.hub.docker.com/bishoybasily/crd:fcrd-1.8
+          name: fidelyo-crd

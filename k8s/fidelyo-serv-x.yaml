@@ -1,0 +1,14 @@
+apiVersion: bishoybasily.gmail.com/v1
+kind: Fidelyo
+metadata:
+  name: fidelyo-service-x
+  namespace: experimental
+spec:
+  image: bishoybasily/service
+  version: fcrd-1.2
+  port: 9090
+  replicas: 2
+  serviceType: LoadBalancer
+  envVars:
+    - name: MESSAGE
+      value: Java loves kubernetes - service X
