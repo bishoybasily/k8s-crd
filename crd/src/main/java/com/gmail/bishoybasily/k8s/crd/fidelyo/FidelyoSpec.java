@@ -11,18 +11,20 @@ import lombok.experimental.Accessors;
 import java.util.HashSet;
 import java.util.Set;
 
+// the kind specs we mentioned earlier,
+// please ignore the deployment and the service for now, i'll come to this later
 @Data
 @Accessors(chain = true)
 @JsonDeserialize
 public class FidelyoSpec implements KubernetesResource {
 
     private String image;
-    private String version;
     private Integer replicas;
     private Integer port;
-    private Deployment deployment;
-    private Service service;
     private String serviceType;
     private Set<EnvVar> envVars = new HashSet<>();
+
+    private Service service;
+    private Deployment deployment;
 
 }

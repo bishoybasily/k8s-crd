@@ -12,7 +12,7 @@
 
     <artifactId>crd</artifactId>
     <name>k8s-crd :: crd</name>
-    <version>fcrd-1.9</version>
+    <version>fcrd-1.10</version>
 
     <dependencies>
 

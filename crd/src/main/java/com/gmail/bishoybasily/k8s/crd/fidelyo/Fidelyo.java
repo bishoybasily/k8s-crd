@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-
+// the custom kind/Resource
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)

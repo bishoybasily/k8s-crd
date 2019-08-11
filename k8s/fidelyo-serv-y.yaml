@@ -4,8 +4,7 @@ metadata:
   name: fidelyo-service-y
   namespace: fcrd
 spec:
-  image: bishoybasily/service
-  version: fcrd-1.2
+  image: bishoybasily/service:fcrd-1.2
   port: 9090
   replicas: 3
   serviceType: LoadBalancer

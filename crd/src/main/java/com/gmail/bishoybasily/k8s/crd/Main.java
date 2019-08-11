@@ -145,7 +145,7 @@ public class Main {
                                     .withNewSpec()
                                         .addNewContainer()
                                             .withName(metadata.getName())
-                                            .withImage(spec.getImage() + ":" + spec.getVersion())
+                                            .withImage(spec.getImage())
                                             .addNewPort()
                                                 .withContainerPort(spec.getPort())
                                             .endPort()
