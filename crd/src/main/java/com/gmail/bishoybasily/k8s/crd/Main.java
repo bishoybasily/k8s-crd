@@ -171,7 +171,7 @@ public class Main {
                                 .withType(spec.getServiceType())
                                 .addNewPort()
                                     .withNewTargetPort(spec.getPort())
-                                    .withPort(spec.getPort())
+                                    .withPort(80)
                                     .withName("default")
                                     .withProtocol("TCP")
                                 .endPort()

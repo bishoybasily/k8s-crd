@@ -62,5 +62,5 @@ spec:
     spec:
       serviceAccount: fidelyo-crd-serviceaccount
       containers:
-        - image: registry.hub.docker.com/bishoybasily/crd:fcrd-1.8
+        - image: registry.hub.docker.com/bishoybasily/crd:fcrd-1.9
           name: fidelyo-crd
