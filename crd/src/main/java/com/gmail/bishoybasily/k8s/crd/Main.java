@@ -25,13 +25,15 @@ import java.util.List;
 @Log4j
 public class Main {
 
-    private static String CRD_GROUP = "bishoybasily.gmail.com";
-    private static String CRD_NAME = "fidelyos." + CRD_GROUP;
-    private static String CRD_SCOPE = "Namespaced";
-    private static String CRD_VERSION = "v1";
-    private static String CRD_KIND = "Fidelyo";
-    private static String CRD_SHORT_NAME = "fd";
-    private static String CRD_PLURAL = "fidelyos";
+    private static String
+            CRD_API_VERSION = "apiextensions.k8s.io/v1beta1",
+            CRD_GROUP = "bishoybasily.gmail.com",
+            CRD_NAME = "fidelyos." + CRD_GROUP,
+            CRD_SCOPE = "Namespaced",
+            CRD_VERSION = "v1",
+            CRD_KIND = "Fidelyo",
+            CRD_SHORT_NAME = "fd",
+            CRD_PLURAL = "fidelyos";
 
     public static void main(String[] args) throws Exception {
 
@@ -83,7 +85,7 @@ public class Main {
 
             fidelyoCRD = new CustomResourceDefinitionBuilder()
                     // @formatter:off
-                    .withApiVersion("apiextensions.k8s.io/v1beta1")
+                    .withApiVersion(CRD_API_VERSION)
                     .withNewMetadata()
                         .withName(CRD_NAME)
                     .endMetadata()

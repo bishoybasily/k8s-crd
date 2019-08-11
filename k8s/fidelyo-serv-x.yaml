@@ -2,7 +2,7 @@ apiVersion: bishoybasily.gmail.com/v1
 kind: Fidelyo
 metadata:
   name: fidelyo-service-x
-  namespace: experimental
+  namespace: fcrd
 spec:
   image: bishoybasily/service
   version: fcrd-1.2

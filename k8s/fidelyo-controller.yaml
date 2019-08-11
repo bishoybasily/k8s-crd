@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  namespace: experimental
+  namespace: fcrd
   name: fidelyo-crd-serviceaccount
   labels:
     type: fcrd
@@ -25,7 +25,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  namespace: experimental
+  namespace: fcrd
   name: fidelyo-crd-clusterrolebinding
   labels:
     type: fcrd
@@ -36,7 +36,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: fidelyo-crd-serviceaccount
-    namespace: experimental
+    namespace: fcrd
     apiGroup: ""
 
 
@@ -45,7 +45,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fidelyo-crd
-  namespace: experimental
+  namespace: fcrd
   labels:
     type: fcrd
 spec:
@@ -56,7 +56,7 @@ spec:
   template:
     metadata:
       name: fidelyo-crd
-      namespace: experimental
+      namespace: fcrd
       labels:
         type: fcrd
     spec:
