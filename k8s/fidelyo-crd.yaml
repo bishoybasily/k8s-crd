@@ -1,4 +1,4 @@
-apiVersion: apiextensions.k8s.io/v1beta1
+apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: fidelyos.bishoybasily.gmail.com
@@ -8,6 +8,24 @@ spec:
     - name: v1
       served: true
       storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                image:
+                  type: string
+                replicas:
+                  type: integer
+                port:
+                  type: integer
+                serviceType:
+                  type: string
+                envVars:
+                  type: object
+
   scope: Namespaced
   names:
     plural: fidelyos
@@ -15,20 +33,4 @@ spec:
     kind: Fidelyo
     shortNames:
       - fd
-  validation:
-    openAPIV3Schema:
-      type: object
-      properties:
-        spec:
-          type: object
-          properties:
-            image:
-              type: string
-            replicas:
-              type: integer
-            port:
-              type: integer
-            serviceType:
-              type: string
-            envVars:
-              type: object
+

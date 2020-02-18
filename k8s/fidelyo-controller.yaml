@@ -22,7 +22,7 @@ rules:
 
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   namespace: fcrd
@@ -60,7 +60,7 @@ spec:
       labels:
         type: fcrd
     spec:
-      serviceAccount: fidelyo-crd-serviceaccount
+      serviceAccountName: fidelyo-crd-serviceaccount
       containers:
         - image: registry.hub.docker.com/bishoybasily/crd:fcrd-1.10
           name: fidelyo-crd
